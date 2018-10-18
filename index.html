@@ -62,7 +62,7 @@
                 <div class="container kingdom" v-for="kingdom in kingdoms">
                     <h3>{{ kingdom.name }}</h3>
                     <div class="moon" v-for="moon in kingdom.moons">
-                        <moon :name="moon"></moon>
+                        <moon :name="moon.name" :description="moon.description"></moon>
                     </div>
                 </div>
             </div>

@@ -16,16 +16,16 @@ Vue.component('moon', {
             checked: false,
         }
     },
-    props: ['name'],
+    props: ['name', 'description'],
     template: `
         <div class="form-check">
             <input class="form-check-input" type="checkbox" v-model="checked" value="">
             <label class="form-check-label">
                 <div class="text-muted" v-if="checked">
-                    <s>{{ name }}</s>
+                    <s>{{ name }}<small class="ml-2 text-muted">{{ description }}</small></s>
                 </div>
                 <div v-else>
-                    {{ name }}
+                    {{ name }}<small class="ml-2 text-muted">{{ description }}</small>
                 </div>
             </label>
         </div>
@@ -89,7 +89,10 @@ var vm = new Vue({
                         continue;
                     }
 
-                    kingdomObj.moons.push(kingdom.moons[index].name);
+                    kingdomObj.moons.push({
+                        name: kingdom.moons[index].name,
+                        description: kingdom.moons[index].description
+                    });
 
                     if (kingdom.moons[index].multimoon == true) {
                         moonCount += 3;
