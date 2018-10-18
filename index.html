@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="moons_nopost.js"></script>
+        <script src="seedrandom.min.js"></script>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="talkatoo.css">
+    </head>
+    <body>
+        <div id="talkatoo">
+            <div class="container settings">
+                <form v-on:submit.prevent="onSubmit">
+                    <h1>Talkatoo!</h1>
+                    <p>Generates a list of moons to collect while playing through Super Mario Odyssey</p>
+                    <div class="form-group">
+                        <label for="seedInput">Seed</label>
+                        <input class="form-control" id="seedInput" v-model="seed">
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="useStoryMoons" v-model="useStoryMoons">
+                            <label class="form-check-label" for="useStoryMoons">
+                                Include Story Moons
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="useSeedMoons" v-model="useSeedMoons">
+                            <label class="form-check-label" for="useSeedMoons">
+                                Include Seed Moons
+                            </label>
+                        </div>
+                    </div>
+                    <!--
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="useWarpMoons">
+                        <label class="form-check-label" for="useWarpMoons">
+                            Include Warp Moons
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="usePostgameMoons">
+                        <label class="form-check-label" for="usePostgameMoons">
+                            Include Postgame Moons
+                        </label>
+                    </div>
+                    -->
+                    <button type="submit" class="btn btn-primary">Generate!</button>
+                </form>
+            </div>
+
+            <div v-if="generated">
+                <div class="container kingdom" v-for="kingdom in kingdoms">
+                    <h3>{{ kingdom.name }}</h3>
+                    <div class="moon" v-for="moon in kingdom.moons">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="">
+                            <label class="form-check-label">
+                                {{ moon }}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="talkatoo.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>
