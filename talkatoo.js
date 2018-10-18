@@ -84,6 +84,12 @@ var vm = new Vue({
             this.generated = true;
         },
 
+        randomSeed: function() {
+            const now = new Date();
+            Math.seedrandom(now.getTime());
+            this.seed = Math.random().toString(36).substring(2);
+        },
+
         encodeSettings: function() {
             // Encode the settings by turning the boolean options into a hexadecimal value,
             // then append the seed to the string. Encode to base64 afterwards.

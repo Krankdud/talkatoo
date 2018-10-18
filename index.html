@@ -17,9 +17,13 @@
                 <form v-on:submit.prevent="onSubmit">
                     <h1>Talkatoo!</h1>
                     <p>Generates a list of moons to collect while playing through Super Mario Odyssey</p>
-                    <div class="form-group">
-                        <label for="seedInput">Seed</label>
-                        <input class="form-control" id="seedInput" v-model="seed">
+                    <div class="form-group form-row">
+                        <div class="col-8">
+                            <input class="form-control" id="seedInput" placeholder="Seed" v-model="seed">
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-primary" v-on:click="randomSeed">Random seed</button>
+                        </div>
                     </div>
                     <div class="form-group">
                         <div class="form-check">
