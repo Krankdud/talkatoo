@@ -16,8 +16,26 @@ var vm = new Vue({
         kingdoms: [],
         generated: false,
         seed: '',
+        shareLink: '',
         useSeedMoons: false,
         useStoryMoons: false,
+    },
+    mounted: function() {
+        let urlParams = new URLSearchParams(window.location.search);
+        let seed = urlParams.get('seed');
+        let useSeedMoons = urlParams.get('useSeedMoons');
+        let useStoryMoons = urlParams.get('useStoryMoons');
+
+        if (useSeedMoons) {
+            this.useSeedMoons = useSeedMoons == 1;
+        }
+        if (useStoryMoons) {
+            this.useStoryMoons = useStoryMoons == 1;
+        }
+        if (seed) {
+            this.seed = seed;
+            this.onSubmit();
+        }
     },
     methods: {
         onSubmit: function() {
@@ -62,6 +80,7 @@ var vm = new Vue({
                 this.kingdoms.push(kingdomObj);
             }
 
+            this.shareLink = [location.protocol, '//', location.host, location.pathname].join('') + '?seed=' + this.seed + '&useSeedMoons=' + (this.useSeedMoons ? 1 : 0) + '&useStoryMoons=' + (this.useStoryMoons ? 1 : 0);
             this.generated = true;
         }
     }
