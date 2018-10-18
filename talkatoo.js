@@ -79,8 +79,7 @@ var vm = new Vue({
                 this.kingdoms.push(kingdomObj);
             }
 
-            this.shareLink = [location.protocol, '//', location.host, location.pathname].join('')
-                + '?seed=' + this.encodeSettings()
+            this.shareLink = [location.protocol, '//', location.host, location.pathname, '?seed=', this.encodeSettings()].join('');
             this.generated = true;
         },
 
