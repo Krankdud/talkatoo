@@ -19,19 +19,19 @@ var vm = new Vue({
         shareLink: '',
         useSeedMoons: false,
         useStoryMoons: false,
+        useWarpMoons: false,
     },
     mounted: function() {
         let urlParams = new URLSearchParams(window.location.search);
         let seed = urlParams.get('seed');
         let useSeedMoons = urlParams.get('useSeedMoons');
         let useStoryMoons = urlParams.get('useStoryMoons');
+        let useWarpMoons = urlParams.get('useWarpMoons');
 
-        if (useSeedMoons) {
-            this.useSeedMoons = useSeedMoons == 1;
-        }
-        if (useStoryMoons) {
-            this.useStoryMoons = useStoryMoons == 1;
-        }
+        this.useSeedMoons = useSeedMoons == 1;
+        this.useStoryMoons = useStoryMoons == 1;
+        this.useWarpMoons = useWarpMoons == 1;
+
         if (seed) {
             this.seed = seed;
             this.onSubmit();
@@ -64,7 +64,10 @@ var vm = new Vue({
                     if (!this.useStoryMoons && kingdom.moons[index].story == true) {
                         continue;
                     }
-                    if (kingdom.moons[index].backtrack == true || kingdom.moons[index].postgame == true || kingdom.moons[index].tourist == true || kingdom.moons[index].hint_art == true || kingdom.moons[index].warp == true) {
+                    if (!this.useWarpMoons && kingdom.moons[index].warp == true) {
+                        continue;
+                    }
+                    if (kingdom.moons[index].backtrack == true || kingdom.moons[index].postgame == true || kingdom.moons[index].tourist == true || kingdom.moons[index].hint_art == true) {
                         continue;
                     }
 
@@ -80,7 +83,11 @@ var vm = new Vue({
                 this.kingdoms.push(kingdomObj);
             }
 
-            this.shareLink = [location.protocol, '//', location.host, location.pathname].join('') + '?seed=' + this.seed + '&useSeedMoons=' + (this.useSeedMoons ? 1 : 0) + '&useStoryMoons=' + (this.useStoryMoons ? 1 : 0);
+            this.shareLink = [location.protocol, '//', location.host, location.pathname].join('')
+                + '?seed=' + this.seed
+                + '&useSeedMoons=' + (this.useSeedMoons ? 1 : 0)
+                + '&useStoryMoons=' + (this.useStoryMoons ? 1 : 0)
+                + '&useWarpMoons=' + (this.useWarpMoons ? 1 : 0);
             this.generated = true;
         }
     }
