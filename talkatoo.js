@@ -10,6 +10,28 @@ function shuffle(a) {
     return a;
 }
 
+Vue.component('moon', {
+    data: function() {
+        return {
+            checked: false,
+        }
+    },
+    props: ['name'],
+    template: `
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" v-model="checked" value="">
+            <label class="form-check-label">
+                <div class="text-muted" v-if="checked">
+                    <s>{{ name }}</s>
+                </div>
+                <div v-else>
+                    {{ name }}
+                </div>
+            </label>
+        </div>
+    `
+})
+
 var vm = new Vue({
     el: '#talkatoo',
     data: {

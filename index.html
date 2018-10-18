@@ -62,12 +62,7 @@
                 <div class="container kingdom" v-for="kingdom in kingdoms">
                     <h3>{{ kingdom.name }}</h3>
                     <div class="moon" v-for="moon in kingdom.moons">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="">
-                            <label class="form-check-label">
-                                {{ moon }}
-                            </label>
-                        </div>
+                        <moon :name="moon"></moon>
                     </div>
                 </div>
             </div>
