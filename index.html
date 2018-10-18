@@ -40,15 +40,13 @@
                                 Include warp painting moons
                             </label>
                         </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="useHintArtMoons" v-model="useHintArtMoons">
+                            <label class="form-check-label" for="useHintArtMoons">
+                                Include hint art moons
+                            </label>
+                        </div>
                     </div>
-                    <!--
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="usePostgameMoons">
-                        <label class="form-check-label" for="usePostgameMoons">
-                            Include Postgame Moons
-                        </label>
-                    </div>
-                    -->
                     <button type="submit" class="btn btn-primary">Generate!</button>
                 </form>
                 <div class="mt-2" v-if="generated">

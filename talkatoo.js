@@ -20,6 +20,7 @@ var vm = new Vue({
         useSeedMoons: false,
         useStoryMoons: false,
         useWarpMoons: false,
+        useHintArtMoons: false,
     },
     mounted: function() {
         let urlParams = new URLSearchParams(window.location.search);
@@ -27,10 +28,12 @@ var vm = new Vue({
         let useSeedMoons = urlParams.get('useSeedMoons');
         let useStoryMoons = urlParams.get('useStoryMoons');
         let useWarpMoons = urlParams.get('useWarpMoons');
+        let useHintArtMoons = urlParams.get('useHintArtMoons');
 
         this.useSeedMoons = useSeedMoons == 1;
         this.useStoryMoons = useStoryMoons == 1;
         this.useWarpMoons = useWarpMoons == 1;
+        this.useHintArtMoons = useHintArtMoons == 1;
 
         if (seed) {
             this.seed = seed;
@@ -58,16 +61,13 @@ var vm = new Vue({
 
                 for (j = 0; j < moonIndices.length && moonCount < kingdom.required_moons; j++) {
                     var index = moonIndices[j];
-                    if (!this.useSeedMoons && kingdom.moons[index].seed == true) {
+                    if ((!this.useSeedMoons && kingdom.moons[index].seed == true)
+                        || (!this.useStoryMoons && kingdom.moons[index].story == true)
+                        || (!this.useWarpMoons && kingdom.moons[index].warp == true)
+                        || (!this.useHintArtMoons && kingdom.moons[index].hint_art == true)) {
                         continue;
                     }
-                    if (!this.useStoryMoons && kingdom.moons[index].story == true) {
-                        continue;
-                    }
-                    if (!this.useWarpMoons && kingdom.moons[index].warp == true) {
-                        continue;
-                    }
-                    if (kingdom.moons[index].backtrack == true || kingdom.moons[index].postgame == true || kingdom.moons[index].tourist == true || kingdom.moons[index].hint_art == true) {
+                    if (kingdom.moons[index].backtrack == true || kingdom.moons[index].postgame == true || kingdom.moons[index].tourist == true) {
                         continue;
                     }
 
@@ -87,7 +87,8 @@ var vm = new Vue({
                 + '?seed=' + this.seed
                 + '&useSeedMoons=' + (this.useSeedMoons ? 1 : 0)
                 + '&useStoryMoons=' + (this.useStoryMoons ? 1 : 0)
-                + '&useWarpMoons=' + (this.useWarpMoons ? 1 : 0);
+                + '&useWarpMoons=' + (this.useWarpMoons ? 1 : 0)
+                + '&useHintArtMoons=' + (this.useHintArtMoons ? 1 : 0);
             this.generated = true;
         }
     }
