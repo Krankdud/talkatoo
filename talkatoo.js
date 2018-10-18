@@ -25,18 +25,14 @@ var vm = new Vue({
     mounted: function() {
         let urlParams = new URLSearchParams(window.location.search);
         let seed = urlParams.get('seed');
-        let useSeedMoons = urlParams.get('useSeedMoons');
-        let useStoryMoons = urlParams.get('useStoryMoons');
-        let useWarpMoons = urlParams.get('useWarpMoons');
-        let useHintArtMoons = urlParams.get('useHintArtMoons');
-
-        this.useSeedMoons = useSeedMoons == 1;
-        this.useStoryMoons = useStoryMoons == 1;
-        this.useWarpMoons = useWarpMoons == 1;
-        this.useHintArtMoons = useHintArtMoons == 1;
 
         if (seed) {
-            this.seed = seed;
+            var settings = this.decodeSettings(seed)
+            this.seed = settings.seed;
+            this.useStoryMoons = settings.useStoryMoons;
+            this.useSeedMoons = settings.useSeedMoons;
+            this.useWarpMoons = settings.useWarpMoons;
+            this.useHintArtMoons = settings.useHintArtMoons;
             this.onSubmit();
         }
     },
@@ -84,12 +80,33 @@ var vm = new Vue({
             }
 
             this.shareLink = [location.protocol, '//', location.host, location.pathname].join('')
-                + '?seed=' + this.seed
-                + '&useSeedMoons=' + (this.useSeedMoons ? 1 : 0)
-                + '&useStoryMoons=' + (this.useStoryMoons ? 1 : 0)
-                + '&useWarpMoons=' + (this.useWarpMoons ? 1 : 0)
-                + '&useHintArtMoons=' + (this.useHintArtMoons ? 1 : 0);
+                + '?seed=' + this.encodeSettings()
             this.generated = true;
+        },
+
+        encodeSettings: function() {
+            // Encode the settings by turning the boolean options into a hexadecimal value,
+            // then append the seed to the string. Encode to base64 afterwards.
+            var settingsBits = 0;
+            settingsBits += this.useStoryMoons ? 1 : 0
+            settingsBits += this.useSeedMoons ? 2 : 0
+            settingsBits += this.useWarpMoons ? 4 : 0
+            settingsBits += this.useHintArtMoons ? 8 : 0
+            return btoa(settingsBits.toString(16) + this.seed);
+        },
+
+        decodeSettings: function(encodedSettings) {
+            var decodedSettings = atob(encodedSettings);
+            var settingsBits = parseInt(decodedSettings.substring(0, 1), 16);
+            var seed = decodedSettings.substring(1);
+            return {
+                seed: seed,
+                useStoryMoons: (settingsBits & 1) > 0,
+                useSeedMoons: (settingsBits & 2) > 0,
+                useWarpMoons: (settingsBits & 4) > 0,
+                useHintArtMoons: (settingsBits & 8) > 0
+            }
         }
-    }
+    },
+
 })
