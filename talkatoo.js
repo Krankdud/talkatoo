@@ -10,6 +10,13 @@ function shuffle(a) {
     return a;
 }
 
+function pad(s, len) {
+    if (s.length >= len) {
+        return s;
+    }
+    return "0".repeat(len - s.length) + s;
+}
+
 Vue.component('moon', {
     data: function() {
         return {
@@ -66,78 +73,81 @@ var vm = new Vue({
             for (i = 0; i < moonList.kingdoms.length; i++) {
                 var kingdom = moonList.kingdoms[i];
                 var moonCount = 0;
-                var kingdomObj = {
+                var kingdomView = {
                     name: kingdom.name,
                     moons: []
                 };
                 var moonPrerequisites = new Set()
 
-                var storyMoonCount = 0;
-                var numOfStoryMoons = Math.floor((kingdom.storyMoons.length + 1) * Math.random());
-                for (j = 0; j < kingdom.storyMoons.length; j++) {
-                    var moon = kingdom.storyMoons[j];
-                    if (moon.required || storyMoonCount < numOfStoryMoons) {
-                        if (this.useStoryMoons) {
-                            kingdomObj.moons.push({
-                                name: moon.name,
-                                description: moon.description
-                            });
-                            
-                            if (moon.multimoon == true) {
-                                moonCount += 3;
-                            } else {
-                                moonCount += 1;
-                            }
-                            storyMoonCount += 1;
-                        }
-                        moonPrerequisites.add(moon.name);
-                    } else {
-                        break;
-                    }
-                }
+                moonCount = this.randomizeStoryMoons(kingdom, kingdomView, moonPrerequisites);
+                this.randomizeMoons(kingdom, kingdomView, moonPrerequisites, moonCount)
 
-                var moonIndices = [];
-                for (j = 0; j < kingdom.moons.length; j++) {
-                    moonIndices.push(j);
-                }
-                shuffle(moonIndices);
-
-                for (j = 0; j < moonIndices.length && moonCount < kingdom.requiredMoons; j++) {
-                    var index = moonIndices[j];
-                    var moon = kingdom.moons[index];
-                    if ((!this.useSeedMoons && moon.seed == true)
-                        || (!this.useWarpMoons && moon.warp == true)
-                        || (!this.useHintArtMoons && moon.hintArt == true)) {
-                        continue;
-                    }
-                    if (moon.multimoon == true && moonCount + 3 > kingdom.requiredMoons) {
-                        continue;
-                    }
-                    if (moon.backtrack == true || moon.postgame == true || moon.tourist == true) {
-                        continue;
-                    }
-                    if (moon.prerequisite && !moonPrerequisites.has(moon.prerequisite)) {
-                        continue;
-                    }
-
-                    kingdomObj.moons.push({
-                        name: moon.name,
-                        description: moon.description
-                    });
-                    moonPrerequisites.add(moon.name);
-
-                    if (moon.multimoon == true) {
-                        moonCount += 3;
-                    } else {
-                        moonCount += 1;
-                    }
-                }
-
-                this.kingdoms.push(kingdomObj);
+                this.kingdoms.push(kingdomView);
             }
 
             this.shareLink = [location.protocol, '//', location.host, location.pathname, '?seed=', this.encodeSettings()].join('');
             this.generated = true;
+        },
+
+        randomizeStoryMoons: function(kingdom, kingdomView, moonPrerequisites) {
+            var moonCount = 0;
+            var storyMoonCount = 0;
+            var numOfStoryMoons = Math.floor((kingdom.storyMoons.length + 1) * Math.random());
+            for (j = 0; j < kingdom.storyMoons.length; j++) {
+                var moon = kingdom.storyMoons[j];
+                if (moon.required || storyMoonCount < numOfStoryMoons) {
+                    if (this.useStoryMoons) {
+                        this.addMoonToKingdom(moon, kingdomView);
+                        
+                        if (moon.multimoon == true) {
+                            moonCount += 3;
+                        } else {
+                            moonCount += 1;
+                        }
+                        storyMoonCount += 1;
+                    }
+                    moonPrerequisites.add(moon.name);
+                } else {
+                    break;
+                }
+            }
+            return moonCount;
+        },
+
+        randomizeMoons: function(kingdom, kingdomView, moonPrerequisites, moonCount) {
+            var moonIndices = [];
+            for (j = 0; j < kingdom.moons.length; j++) {
+                moonIndices.push(j);
+            }
+            shuffle(moonIndices);
+
+            for (j = 0; j < moonIndices.length && moonCount < kingdom.requiredMoons; j++) {
+                var index = moonIndices[j];
+                var moon = kingdom.moons[index];
+                if ((!this.useSeedMoons && moon.seed == true)
+                    || (!this.useWarpMoons && moon.warp == true)
+                    || (!this.useHintArtMoons && moon.hintArt == true)) {
+                    continue;
+                }
+                if (moon.multimoon == true && moonCount + 3 > kingdom.requiredMoons) {
+                    continue;
+                }
+                if (moon.backtrack == true || moon.postgame == true || moon.tourist == true) {
+                    continue;
+                }
+                if (moon.prerequisite && !moonPrerequisites.has(moon.prerequisite)) {
+                    continue;
+                }
+
+                this.addMoonToKingdom(moon, kingdomView);
+                moonPrerequisites.add(moon.name);
+
+                if (moon.multimoon == true) {
+                    moonCount += 3;
+                } else {
+                    moonCount += 1;
+                }
+            }
         },
 
         randomSeed: function() {
@@ -154,13 +164,13 @@ var vm = new Vue({
             settingsBits += this.useSeedMoons ? 2 : 0
             settingsBits += this.useWarpMoons ? 4 : 0
             settingsBits += this.useHintArtMoons ? 8 : 0
-            return btoa(settingsBits.toString(16) + this.seed);
+            return btoa(pad(settingsBits.toString(16), 4) + this.seed);
         },
 
         decodeSettings: function(encodedSettings) {
             var decodedSettings = atob(encodedSettings);
-            var settingsBits = parseInt(decodedSettings.substring(0, 1), 16);
-            var seed = decodedSettings.substring(1);
+            var settingsBits = parseInt(decodedSettings.substring(0, 4), 16);
+            var seed = decodedSettings.substring(4);
             return {
                 seed: seed,
                 useStoryMoons: (settingsBits & 1) > 0,
@@ -168,6 +178,13 @@ var vm = new Vue({
                 useWarpMoons: (settingsBits & 4) > 0,
                 useHintArtMoons: (settingsBits & 8) > 0
             }
+        },
+
+        addMoonToKingdom: function(moon, kingdom) {
+            kingdom.moons.push({
+                name: moon.name,
+                description: moon.description
+            });
         }
     },
 
