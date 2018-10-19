@@ -50,6 +50,7 @@ var vm = new Vue({
         useStoryMoons: false,
         useWarpMoons: false,
         useHintArtMoons: false,
+        ignoreRequirements: false
     },
     mounted: function() {
         let urlParams = new URLSearchParams(window.location.search);
@@ -62,6 +63,7 @@ var vm = new Vue({
             this.useSeedMoons = settings.useSeedMoons;
             this.useWarpMoons = settings.useWarpMoons;
             this.useHintArtMoons = settings.useHintArtMoons;
+            this.ignoreRequirements = settings.ignoreRequirements;
             this.onSubmit();
         }
     },
@@ -135,7 +137,7 @@ var vm = new Vue({
                 if (moon.backtrack == true || moon.postgame == true || moon.tourist == true) {
                     continue;
                 }
-                if (moon.prerequisite && !moonPrerequisites.has(moon.prerequisite)) {
+                if (!this.ignoreRequirements && moon.prerequisite && !moonPrerequisites.has(moon.prerequisite)) {
                     continue;
                 }
 
@@ -164,6 +166,7 @@ var vm = new Vue({
             settingsBits += this.useSeedMoons ? 2 : 0
             settingsBits += this.useWarpMoons ? 4 : 0
             settingsBits += this.useHintArtMoons ? 8 : 0
+            settingsBits += this.ignoreRequirements ? 16 : 0
             return btoa(pad(settingsBits.toString(16), 4) + this.seed);
         },
 
@@ -176,7 +179,8 @@ var vm = new Vue({
                 useStoryMoons: (settingsBits & 1) > 0,
                 useSeedMoons: (settingsBits & 2) > 0,
                 useWarpMoons: (settingsBits & 4) > 0,
-                useHintArtMoons: (settingsBits & 8) > 0
+                useHintArtMoons: (settingsBits & 8) > 0,
+                ignoreRequirements: (settingsBits & 16) > 0,
             }
         },
 
