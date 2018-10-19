@@ -95,22 +95,46 @@ var vm = new Vue({
             var moonCount = 0;
             var storyMoonCount = 0;
             var numOfStoryMoons = Math.floor((kingdom.storyMoons.length + 1) * Math.random());
-            for (j = 0; j < kingdom.storyMoons.length; j++) {
-                var moon = kingdom.storyMoons[j];
-                if (moon.required || storyMoonCount < numOfStoryMoons) {
-                    if (this.useStoryMoons) {
-                        this.addMoonToKingdom(moon, kingdomView);
-                        
-                        if (moon.multimoon == true) {
-                            moonCount += 3;
-                        } else {
-                            moonCount += 1;
-                        }
-                        storyMoonCount += 1;
+
+            // Get random story moons if requirements are ignored.
+            // Otherwise, pull a number of story moons to add and add them in order.
+            if (this.ignoreRequirements && this.useStoryMoons) {
+                var moonIndices = [];
+                for (j = 0; j < kingdom.storyMoons.length; j++) {
+                    moonIndices.push(j);
+                }
+                shuffle(moonIndices);
+
+                for (j = 0; j < numOfStoryMoons; j++) {
+                    var index = moonIndices[j];
+                    var moon = kingdom.storyMoons[index];
+
+                    if (moon.multimoon == true) {
+                        moonCount += 3;
+                    } else {
+                        moonCount += 1;
                     }
-                    moonPrerequisites.add(moon.name);
-                } else {
-                    break;
+
+                    this.addMoonToKingdom(moon, kingdomView);
+                }
+            } else {
+                for (j = 0; j < kingdom.storyMoons.length; j++) {
+                    var moon = kingdom.storyMoons[j];
+                    if (moon.required || storyMoonCount < numOfStoryMoons) {
+                        if (this.useStoryMoons) {
+                            this.addMoonToKingdom(moon, kingdomView);
+
+                            if (moon.multimoon == true) {
+                                moonCount += 3;
+                            } else {
+                                moonCount += 1;
+                            }
+                            storyMoonCount += 1;
+                        }
+                        moonPrerequisites.add(moon.name);
+                    } else {
+                        break;
+                    }
                 }
             }
             return moonCount;
