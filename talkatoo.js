@@ -85,6 +85,9 @@ var vm = new Vue({
                         || (!this.useHintArtMoons && kingdom.moons[index].hint_art == true)) {
                         continue;
                     }
+                    if (kingdom.moons[index].multimoon == true && moonCount + 3 > kingdom.required_moons) {
+                        continue;
+                    }
                     if (kingdom.moons[index].backtrack == true || kingdom.moons[index].postgame == true || kingdom.moons[index].tourist == true) {
                         continue;
                     }
