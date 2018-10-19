@@ -3,17 +3,19 @@ var moonList = {
         {
             name: "Cascade Kingdom",
             requiredMoons: 5,
-            moons: [
+            storyMoons: [
                 {
                     name: "Our First Power Moon",
-                    story: true
+                    required: true
                 },
                 {
                     name: "Multi Moon Atop the Falls",
-                    story: true,
                     multimoon: true,
-                    prerequisite: "Our First Power Moon"
+                    prerequisite: "Our First Power Moon",
+                    required: true
                 },
+            ],
+            moons: [
                 {
                     name: "Chomp Through the Rocks",
                     prerequisite: "Our First Power Moon"
@@ -171,27 +173,25 @@ var moonList = {
         {
             name: "Sand Kingdom",
             requiredMoons: 16,
-            moons: [
+            storyMoons: [
                 {
                     name: "Atop the Highest Tower",
-                    story: true
                 },
                 {
                     name: "Moon Shards in the Sand",
-                    story: true,
                     prerequisite: "Atop the Highest Tower"
                 },
                 {
                     name: "Showdown on the Inverted Pyramid",
-                    story: true,
                     multimoon: true
                 },
                 {
                     name: "The Hole in the Desert",
-                    story: true,
                     multimoon: true,
                     prerequisite: "Showdown on the Inverted Pyramid"
-                },
+                }
+            ],
+            moons: [
                 {
                     name: "Overlooking the Desert Town"
                 },
@@ -518,12 +518,13 @@ var moonList = {
         {
             name: "Lake Kingdom",
             requiredMoons: 8,
-            moons: [
+            storyMoons: [
                 {
                     name: "Broodals Over the Lake",
-                    story: true,
                     multimoon: true
-                },
+                }
+            ],
+            moons: [
                 {
                     name: "Dorrie-Back Rider"
                 },
@@ -676,28 +677,26 @@ var moonList = {
         {
             name: "Wooded Kingdom",
             requiredMoons: 16,
-            moons: [
+            storyMoons: [
                 {
                     name: "Road to Sky Garden",
-                    story: true
                 },
                 {
                     name: "Flower Thieves of Sky Garden",
-                    story: true,
                     multimoon: true,
                     prerequisite: "Road to Sky Garden"
                 },
                 {
                     name: "Path to the Secret Flower Field",
-                    story: true,
                     prerequisite: "Flower Thieves of Sky Garden"
                 },
                 {
                     name: "Defend the Secret Flower Field!",
-                    story: true,
                     multimoon: true,
                     prerequisite: "Path to the Secret Flower Field"
                 },
+            ],
+            moons: [
                 {
                     name: "Behind the Rock Wall",
                     prerequisite: "Flower Thieves of Sky Garden"
@@ -973,6 +972,7 @@ var moonList = {
         {
             name: "Lost Kingdom",
             requiredMoons: 10,
+            storyMoons: [],
             moons: [
                 {
                     name: "Atop a Propeller Pillar"
@@ -1099,33 +1099,30 @@ var moonList = {
         {
             name: "Metro Kingdom",
             requiredMoons: 20,
-            moons: [
+            storyMoons: [
                 {
                     name: "New Donk City's Pest Problem",
-                    story: true,
-                    multimoon: true
+                    multimoon: true,
+                    required: true
                 },
                 {
                     name: "Drummer on Board!",
-                    story: true
                 },
                 {
                     name: "Guitarist on Board!",
-                    story: true
                 },
                 {
                     name: "Bassist on Board!",
-                    story: true
                 },
                 {
                     name: "Trumpeter on Board!",
-                    story: true
                 },
                 {
                     name: "Powering Up the Station",
-                    story: true,
                     prerequisite: ["Drummer on Board!", "Guitarist on Board!", "Bassist on Board!", "Trumpeter on Board!"]
                 },
+            ],
+            moons: [
                 {
                     name: "A Traditional Festival!",
                     story: true,
@@ -1401,28 +1398,25 @@ var moonList = {
         {
             name: "Snow Kingdom",
             requiredMoons: 10,
-            moons: [
+            storyMoons: [
                 {
                     name: "The Icicle Barrier",
-                    story: true
                 },
                 {
                     name: "The Ice Wall Barrier",
-                    story: true
                 },
                 {
                     name: "The Gusty Barrier",
-                    story: true
                 },
                 {
                     name: "The Snowy Mountain Barrier",
-                    story: true
                 },
                 {
                     name: "The Bound Bowl Grand Prix",
-                    story: true,
                     multimoon: true
                 },
+            ],
+            moons: [
                 {
                     name: "Entrance to Shiveria"
                 },
@@ -1633,29 +1627,26 @@ var moonList = {
         {
             name: "Seaside Kingdom",
             requiredMoons: 10,
-            moons: [
+            storyMoons: [
                 {
                     name: "The Stone Pillar Seal",
-                    story: true
                 },
                 {
                     name: "The Lighthouse Seal",
-                    story: true
                 },
                 {
                     name: "The Hot Spring Seal",
-                    story: true
                 },
                 {
                     name: "The Seal Above the Canyon",
-                    story: true
                 },
                 {
                     name: "The Glass Is Half Full!",
-                    story: true,
                     multimoon: true,
                     prerequisite: ["The Stone Pillar Seal", "The Lighthouse Seal", "The Hot Spring Seal", "The Seal Above the Canyon"]
-                },
+                }
+            ],
+            moons: [
                 {
                     name: "On the Cliff Overlooking the Beach"
                 },
@@ -1898,33 +1889,31 @@ var moonList = {
         {
             name: "Luncheon Kingdom",
             requiredMoons: 18,
-            moons: [
+            storyMoons: [
                 {
                     name: "The Broodals Are After Some Cookin'",
-                    story: true
+                    required: true
                 },
                 {
                     name: "Under the Cheese Rocks",
-                    story: true,
                     prerequisite: "The Broodals Are After Some Cookin'"
                 },
                 {
                     name: "Big Pot on the Volcano: Dive In!",
-                    story: true,
                     multimoon: true,
                     prerequisite: "Under the Cheese Rocks"
                 },
                 {
                     name: "Climb Up the Cascading Magma",
-                    story: true,
                     prerequisite: "Big Pot on the Volcano: Dive In!"
                 },
                 {
                     name: "Cookatiel Showdown!",
-                    story: true,
                     multimoon: true,
                     prerequisite: "Climb Up the Cascading Magma"
-                },
+                }
+            ],
+            moons: [
                 {
                     name: "Piled on the Salt"
                 },
@@ -2180,27 +2169,29 @@ var moonList = {
         {
             name: "Bowser's Kingdom",
             requiredMoons: 8,
-            moons: [
+            storyMoons: [
                 {
                     name: "Infiltrate Bowser's Castle!",
-                    story: true
+                    required: true
                 },
                 {
                     name: "Smart Bombing",
-                    story: true,
-                    prerequisite: "Infiltrate Bowser's Castle!"
+                    prerequisite: "Infiltrate Bowser's Castle!",
+                    required: true
                 },
                 {
                     name: "Big Broodal Battle",
-                    story: true,
-                    prerequisite: "Smart Bombing"
+                    prerequisite: "Smart Bombing",
+                    required: true
                 },
                 {
                     name: "Showdown at Bowser's Castle",
-                    story: true,
                     multimoon: true,
-                    prerequisite: "Big Broodal Battle"
-                },
+                    prerequisite: "Big Broodal Battle",
+                    required: true
+                }
+            ],
+            moons: [
                 {
                     name: "Behind the Big Wall"
                 },

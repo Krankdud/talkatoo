@@ -70,6 +70,31 @@ var vm = new Vue({
                     name: kingdom.name,
                     moons: []
                 };
+                var moonPrerequisites = new Set()
+
+                var storyMoonCount = 0;
+                var numOfStoryMoons = Math.floor((kingdom.storyMoons.length + 1) * Math.random());
+                for (j = 0; j < kingdom.storyMoons.length; j++) {
+                    var moon = kingdom.storyMoons[j];
+                    if (moon.required || storyMoonCount < numOfStoryMoons) {
+                        if (this.useStoryMoons) {
+                            kingdomObj.moons.push({
+                                name: moon.name,
+                                description: moon.description
+                            });
+                            
+                            if (moon.multimoon == true) {
+                                moonCount += 3;
+                            } else {
+                                moonCount += 1;
+                            }
+                            storyMoonCount += 1;
+                        }
+                        moonPrerequisites.add(moon.name);
+                    } else {
+                        break;
+                    }
+                }
 
                 var moonIndices = [];
                 for (j = 0; j < kingdom.moons.length; j++) {
@@ -79,25 +104,29 @@ var vm = new Vue({
 
                 for (j = 0; j < moonIndices.length && moonCount < kingdom.requiredMoons; j++) {
                     var index = moonIndices[j];
-                    if ((!this.useSeedMoons && kingdom.moons[index].seed == true)
-                        || (!this.useStoryMoons && kingdom.moons[index].story == true)
-                        || (!this.useWarpMoons && kingdom.moons[index].warp == true)
-                        || (!this.useHintArtMoons && kingdom.moons[index].hintArt == true)) {
+                    var moon = kingdom.moons[index];
+                    if ((!this.useSeedMoons && moon.seed == true)
+                        || (!this.useWarpMoons && moon.warp == true)
+                        || (!this.useHintArtMoons && moon.hintArt == true)) {
                         continue;
                     }
-                    if (kingdom.moons[index].multimoon == true && moonCount + 3 > kingdom.requiredMoons) {
+                    if (moon.multimoon == true && moonCount + 3 > kingdom.requiredMoons) {
                         continue;
                     }
-                    if (kingdom.moons[index].backtrack == true || kingdom.moons[index].postgame == true || kingdom.moons[index].tourist == true) {
+                    if (moon.backtrack == true || moon.postgame == true || moon.tourist == true) {
+                        continue;
+                    }
+                    if (moon.prerequisite && !moonPrerequisites.has(moon.prerequisite)) {
                         continue;
                     }
 
                     kingdomObj.moons.push({
-                        name: kingdom.moons[index].name,
-                        description: kingdom.moons[index].description
+                        name: moon.name,
+                        description: moon.description
                     });
+                    moonPrerequisites.add(moon.name);
 
-                    if (kingdom.moons[index].multimoon == true) {
+                    if (moon.multimoon == true) {
                         moonCount += 3;
                     } else {
                         moonCount += 1;
