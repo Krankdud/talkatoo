@@ -77,15 +77,15 @@ var vm = new Vue({
                 }
                 shuffle(moonIndices);
 
-                for (j = 0; j < moonIndices.length && moonCount < kingdom.required_moons; j++) {
+                for (j = 0; j < moonIndices.length && moonCount < kingdom.requiredMoons; j++) {
                     var index = moonIndices[j];
                     if ((!this.useSeedMoons && kingdom.moons[index].seed == true)
                         || (!this.useStoryMoons && kingdom.moons[index].story == true)
                         || (!this.useWarpMoons && kingdom.moons[index].warp == true)
-                        || (!this.useHintArtMoons && kingdom.moons[index].hint_art == true)) {
+                        || (!this.useHintArtMoons && kingdom.moons[index].hintArt == true)) {
                         continue;
                     }
-                    if (kingdom.moons[index].multimoon == true && moonCount + 3 > kingdom.required_moons) {
+                    if (kingdom.moons[index].multimoon == true && moonCount + 3 > kingdom.requiredMoons) {
                         continue;
                     }
                     if (kingdom.moons[index].backtrack == true || kingdom.moons[index].postgame == true || kingdom.moons[index].tourist == true) {
