@@ -553,11 +553,13 @@ var moonList = {
                 },
                 {
                     name: "Lake Kingdom Timer Challenge 1",
-                    prerequisite: "Broodals Over the Lake"
+                    prerequisite: "Broodals Over the Lake",
+                    worldPeace: true
                 },
                 {
                     name: "Lake Kingdom Timer Challenge 2",
-                    prerequisite: "Broodals Over the Lake"
+                    prerequisite: "Broodals Over the Lake",
+                    worldPeace: true
                 },
                 {
                     name: "Moon Shards in the Lake"
@@ -570,11 +572,13 @@ var moonList = {
                 },
                 {
                     name: "Lake Fishing",
-                    prerequisite: "Broodals Over the Lake"
+                    prerequisite: "Broodals Over the Lake",
+                    worldPeace: true
                 },
                 {
                     name: "I Met a Lake Cheep Cheep!",
-                    prerequisite: "Broodals Over the Lake"
+                    prerequisite: "Broodals Over the Lake",
+                    worldPeace: true
                 },
                 {
                     name: "Our Secret Little Room"
@@ -587,7 +591,8 @@ var moonList = {
                 },
                 {
                     name: "A Successful Repair Job",
-                    prerequisite: "Broodals Over the Lake"
+                    prerequisite: "Broodals Over the Lake",
+                    worldPeace: true
                 },
                 {
                     name: "I Feel Underdressed"
