@@ -115,14 +115,14 @@ var vm = new Vue({
                         moonCount += 1;
                     }
 
-                    this.addMoonToKingdom(moon, kingdomView);
+                    this.addMoonToKingdom(moon, kingdomView, '📖');
                 }
             } else {
                 for (j = 0; j < kingdom.storyMoons.length; j++) {
                     var moon = kingdom.storyMoons[j];
                     if (moon.required || storyMoonCount < numOfStoryMoons) {
                         if (this.useStoryMoons) {
-                            this.addMoonToKingdom(moon, kingdomView);
+                            this.addMoonToKingdom(moon, kingdomView, '📖');
 
                             if (moon.multimoon == true) {
                                 moonCount += 3;
@@ -165,7 +165,11 @@ var vm = new Vue({
                     continue;
                 }
 
-                this.addMoonToKingdom(moon, kingdomView);
+                if (moon.worldPeace) {
+                    this.addMoonToKingdom(moon, kingdomView, '️🌎');
+                } else {
+                    this.addMoonToKingdom(moon, kingdomView);
+                }
                 moonPrerequisites.add(moon.name);
 
                 if (moon.multimoon == true) {
@@ -196,7 +200,7 @@ var vm = new Vue({
 
         decodeSettings: function(encodedSettings) {
             var decodedSettings = atob(encodedSettings);
-            var settingsBits = parseInt(decodedSettings.substring(0, 4), 16);
+            var settingsBits = parseInt(decodedSettings.substring(0, 2), 16);
             var seed = decodedSettings.substring(4);
             return {
                 seed: seed,
@@ -208,9 +212,13 @@ var vm = new Vue({
             }
         },
 
-        addMoonToKingdom: function(moon, kingdom) {
+        addMoonToKingdom: function(moon, kingdom, suffix = '') {
+            var name = moon.name;
+            if (suffix != '') {
+                name = [name, suffix].join(' ');
+            }
             kingdom.moons.push({
-                name: moon.name,
+                name: name,
                 description: moon.description
             });
         }
