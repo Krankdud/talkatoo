@@ -1230,7 +1230,7 @@ var moonList = {
                 },
                 {
                     name: "Celebrating in the Streets!",
-                    prerequisite: "Powering Up the Station"
+                    prerequisite: "A Traditional Festival!"
                 },
                 {
                     name: "Pushing Through the Crowd"
