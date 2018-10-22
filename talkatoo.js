@@ -165,9 +165,6 @@ var vm = new Vue({
                     || (!this.useHintArtMoons && moon.hintArt == true)) {
                     continue;
                 }
-                if (moon.multimoon == true && moonCount + 3 > kingdom.requiredMoons) {
-                    continue;
-                }
                 if (moon.backtrack == true || moon.postgame == true || moon.tourist == true) {
                     continue;
                 }
@@ -194,11 +191,7 @@ var vm = new Vue({
                 }
                 moonPrerequisites.add(moon.name);
 
-                if (moon.multimoon == true) {
-                    moonCount += 3;
-                } else {
-                    moonCount += 1;
-                }
+                moonCount += 1;
             }
         },
 
