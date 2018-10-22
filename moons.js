@@ -208,7 +208,8 @@ var moonList = {
                     name: "Secret of the Mural"
                 },
                 {
-                    name: "Secret of the Inverted Mural"
+                    name: "Secret of the Inverted Mural",
+                    prerequisite: "Moon Shards in the Sand"
                 },
                 {
                     name: "On Top of the Stone Archway"
@@ -220,7 +221,8 @@ var moonList = {
                     name: "On the Lone Pillar"
                 },
                 {
-                    name: "On the Statue's Tail"
+                    name: "On the Statue's Tail",
+                    prerequisite: "Moon Shards in the Sand"
                 },
                 {
                     name: "Hang Your Hat on the Fountain",
@@ -344,7 +346,8 @@ var moonList = {
                     name: "Walking the Desert!"
                 },
                 {
-                    name: "Hidden Room in the Inverted Pyramid"
+                    name: "Hidden Room in the Inverted Pyramid",
+                    prerequisite: "Moon Shards in the Sand"
                 },
                 {
                     name: "Underground Treasure Chest",
