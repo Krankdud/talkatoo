@@ -29,10 +29,16 @@ Vue.component('moon', {
             <input class="form-check-input" type="checkbox" v-model="checked" value="">
             <label class="form-check-label">
                 <div class="text-muted" v-if="checked">
-                    <s>{{ name }}<small class="ml-2 text-muted">{{ description }}</small></s>
+                    <s>
+                        {{ name }}
+                        <br class="d-md-none" v-if="description" />
+                        <small class="ml-md-2 text-muted">{{ description }}</small>
+                    </s>
                 </div>
                 <div v-else>
-                    {{ name }}<small class="ml-2 text-muted">{{ description }}</small>
+                    {{ name }}
+                    <br class="d-md-none" v-if="description" />
+                    <small class="ml-md-2 text-muted">{{ description }}</small>
                 </div>
             </label>
         </div>

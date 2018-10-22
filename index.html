@@ -20,10 +20,10 @@
                     <h1>Talkatoo!</h1>
                     <p>Generates a list of moons to collect while playing through Super Mario Odyssey</p>
                     <div class="form-group form-row">
-                        <div class="col-8">
+                        <div class="col">
                             <input class="form-control" id="seedInput" placeholder="Seed" v-model="seed">
                         </div>
-                        <div class="col">
+                        <div class="col-auto">
                             <button type="button" class="btn btn-primary" v-on:click="randomSeed">Random seed</button>
                         </div>
                     </div>
@@ -31,8 +31,10 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="useStoryMoons" v-model="useStoryMoons">
                             <label class="form-check-label" for="useStoryMoons">
-                                Include story moons <small class="text-muted">(Gives exactly 124 moons, unless moon requirements are ignored)</small>
+                                Include story moons
                             </label>
+                            <br class="d-md-none" />
+                            <small class="text-muted">(Gives exactly 124 moons, unless moon requirements are ignored)</small>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="useSeedMoons" v-model="useSeedMoons">
@@ -55,8 +57,10 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="ignoreRequirements" v-model="ignoreRequirements">
                             <label class="form-check-label" for="ignoreRequirements">
-                                Ignore moon requirements <small class="text-muted">(Likely need world peace in almost every kingdom)</small>
+                                Ignore moon requirements
                             </label>
+                            <br class="d-md-none" />
+                            <small class="text-muted">(Likely need world peace in almost every kingdom)</small>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Generate!</button>
