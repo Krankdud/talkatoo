@@ -206,7 +206,7 @@ var vm = new Vue({
 
         decodeSettings: function(encodedSettings) {
             var decodedSettings = atob(encodedSettings);
-            var settingsBits = parseInt(decodedSettings.substring(0, 2), 16);
+            var settingsBits = parseInt(decodedSettings.substring(0, 4), 16);
             var seed = decodedSettings.substring(4);
             return {
                 seed: seed,
