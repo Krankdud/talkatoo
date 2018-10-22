@@ -1,6 +1,18 @@
 var moonList = {
-    kingdoms: [
-        {
+    anyPercentKingdoms: [
+        "cascade",
+        "sand",
+        "lake",
+        "wooded",
+        "lost",
+        "metro",
+        "snow",
+        "seaside",
+        "luncheon",
+        "bowser"
+    ],
+    kingdoms: {
+        cascade: {
             name: "Cascade Kingdom",
             requiredMoons: 5,
             storyMoons: [
@@ -183,7 +195,7 @@ var moonList = {
                 }
             ]
         },
-        {
+        sand: {
             name: "Sand Kingdom",
             requiredMoons: 16,
             storyMoons: [
@@ -531,7 +543,7 @@ var moonList = {
                 }
             ]
         },
-        {
+        lake: {
             name: "Lake Kingdom",
             requiredMoons: 8,
             storyMoons: [
@@ -695,7 +707,7 @@ var moonList = {
                 }
             ]
         },
-        {
+        wooded: {
             name: "Wooded Kingdom",
             requiredMoons: 16,
             storyMoons: [
@@ -990,7 +1002,7 @@ var moonList = {
                 }
             ]
         },
-        {
+        lost: {
             name: "Lost Kingdom",
             requiredMoons: 10,
             storyMoons: [],
@@ -1117,7 +1129,7 @@ var moonList = {
                 }
             ]
         },
-        {
+        metro: {
             name: "Metro Kingdom",
             requiredMoons: 20,
             storyMoons: [
@@ -1417,7 +1429,7 @@ var moonList = {
                 }
             ]
         },
-        {
+        snow: {
             name: "Snow Kingdom",
             requiredMoons: 10,
             storyMoons: [
@@ -1646,7 +1658,7 @@ var moonList = {
                 }
             ]
         },
-        {
+        seaside: {
             name: "Seaside Kingdom",
             requiredMoons: 10,
             storyMoons: [
@@ -1908,7 +1920,7 @@ var moonList = {
                 }
             ]
         },
-        {
+        luncheon: {
             name: "Luncheon Kingdom",
             requiredMoons: 18,
             storyMoons: [
@@ -2188,7 +2200,7 @@ var moonList = {
                 }
             ]
         },
-        {
+        bowser: {
             name: "Bowser's Kingdom",
             requiredMoons: 8,
             storyMoons: [
@@ -2427,5 +2439,5 @@ var moonList = {
                 }
             ]
         }
-    ]
+    }
 }

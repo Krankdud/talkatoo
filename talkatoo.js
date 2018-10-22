@@ -76,10 +76,17 @@ var vm = new Vue({
     methods: {
         onSubmit: function() {
             Math.seedrandom(this.seed);
-            this.kingdoms = [];
 
-            for (i = 0; i < moonList.kingdoms.length; i++) {
-                var kingdom = moonList.kingdoms[i];
+            this.generateMoonList(moonList.anyPercentKingdoms);
+
+            this.shareLink = [location.protocol, '//', location.host, location.pathname, '?seed=', this.encodeSettings()].join('');
+            this.generated = true;
+        },
+
+        generateMoonList: function(kingdoms) {
+            this.kingdoms = [];
+            for (i = 0; i < kingdoms.length; i++) {
+                var kingdom = moonList.kingdoms[kingdoms[i]];
                 var moonCount = 0;
                 var kingdomView = {
                     name: kingdom.name,
@@ -92,9 +99,6 @@ var vm = new Vue({
 
                 this.kingdoms.push(kingdomView);
             }
-
-            this.shareLink = [location.protocol, '//', location.host, location.pathname, '?seed=', this.encodeSettings()].join('');
-            this.generated = true;
         },
 
         randomizeStoryMoons: function(kingdom, kingdomView, moonPrerequisites) {
