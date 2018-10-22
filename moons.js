@@ -49,6 +49,8 @@ var moonList = {
                 {
                     name: "Secrets of the Frog Pond"
                 },
+            ],
+            postgameMoons: [
                 {
                     name: "The Forgotten Treasure",
                     postgame: true
@@ -233,6 +235,8 @@ var moonList = {
                     name: "Rolling Rock by the Falls",
                     backtrack: true
                 },
+            ],
+            postgameMoons: [
                 {
                     name: "Peach in the Cascade Kingdom",
                     postgame: true
@@ -551,6 +555,8 @@ var moonList = {
                     name: "Secret Path to Tostarena!",
                     warp: true
                 },
+            ],
+            postgameMoons: [
                 {
                     name: "Found with Sand Kingdom Art",
                     hintArt: true,
@@ -765,6 +771,8 @@ var moonList = {
                     name: "Found with Lake Kingdom Art",
                     hintArt: true
                 },
+            ],
+            postgameMoons: [
                 {
                     name: "Taxi Flying Through Lake Lamode",
                     postgame: true
@@ -1016,6 +1024,8 @@ var moonList = {
                     name: "Found with Wooded Kingdom Art",
                     hintArt: true
                 },
+            ],
+            postgameMoons: [
                 {
                     name: "Swing Around Secret Flower Field",
                     postgame: true
@@ -1129,6 +1139,8 @@ var moonList = {
                 {
                     name: "Picture Match: Basically a Goomba"
                 },
+            ],
+            postgameMoons: [
                 {
                     name: "Peach in the Cloud Kingdom",
                     postgame: true
@@ -1233,6 +1245,8 @@ var moonList = {
                 {
                     name: "Shopping on Forgotten Isle"
                 },
+            ],
+            postgameMoons: [
                 {
                     name: "Taxi Flying Through Forgotten Isle",
                     postgame: true
@@ -1477,6 +1491,8 @@ var moonList = {
                     name: "Found with Metro Kingdom Art",
                     hintArt: true
                 },
+            ],
+            postgameMoons: [
                 {
                     name: "Bird Traveling in the City",
                     postgame: true
@@ -1734,6 +1750,8 @@ var moonList = {
                     name: "Found with Snow Kingdom Art",
                     hintArt: true
                 },
+            ],
+            postgameMoons: [
                 {
                     name: "Snow Kingdom Regular Cup",
                     postgame: true
@@ -1996,6 +2014,8 @@ var moonList = {
                     name: "Found with Seaside Kingdom Art",
                     hintArt: true
                 },
+            ],
+            postgameMoons: [
                 {
                     name: "Seaside Kingdom Regular Cup",
                     postgame: true
@@ -2284,6 +2304,8 @@ var moonList = {
                     name: "Found with Luncheon Kingdom Art",
                     hintArt: true
                 },
+            ],
+            postgameMoons: [
                 {
                     name: "The Rooftop Lantern",
                     postgame: true
@@ -2382,6 +2404,8 @@ var moonList = {
                 {
                     name: "Roulette Tower: Stopped"
                 },
+            ],
+            postgameMoons: [
                 {
                     name: "Peach in the Ruined Kingdom",
                     postgame: true
@@ -2547,6 +2571,8 @@ var moonList = {
                 {
                     name: "Dashing Through the Clouds"
                 },
+            ],
+            postgameMoons: [
                 {
                     name: "Sphynx Over Bowser's Castle",
                     postgame: true
@@ -2693,6 +2719,8 @@ var moonList = {
                 {
                     name: "Up in the Rafters"
                 },
+            ],
+            postgameMoons: [
                 {
                     name: "Sneaking Around in the Crater",
                     postgame: true

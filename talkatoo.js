@@ -166,7 +166,7 @@ var vm = new Vue({
                     || (!this.useHintArtMoons && moon.hintArt == true)) {
                     continue;
                 }
-                if (moon.backtrack == true || moon.postgame == true || moon.tourist == true) {
+                if (moon.backtrack == true || moon.postgame == true || moon.tourist == true || moon.achievement == true) {
                     continue;
                 }
                 if (!this.ignoreRequirements && moon.prerequisite && !moonPrerequisites.has(moon.prerequisite)) {
