@@ -95,7 +95,7 @@ var vm = new Vue({
                 var moonPrerequisites = new Set()
 
                 moonCount = this.randomizeStoryMoons(kingdom, kingdomView, moonPrerequisites);
-                this.randomizeMoons(kingdom, kingdomView, moonPrerequisites, moonCount)
+                this.randomizeMoons(kingdom, kingdomView, moonPrerequisites, moonCount, kingdom.requiredMoons)
 
                 this.kingdoms.push(kingdomView);
             }
@@ -150,14 +150,14 @@ var vm = new Vue({
             return moonCount;
         },
 
-        randomizeMoons: function(kingdom, kingdomView, moonPrerequisites, moonCount) {
+        randomizeMoons: function(kingdom, kingdomView, moonPrerequisites, moonCount, totalMoons) {
             var moonIndices = [];
             for (j = 0; j < kingdom.moons.length; j++) {
                 moonIndices.push(j);
             }
             shuffle(moonIndices);
 
-            for (j = 0; j < moonIndices.length && moonCount < kingdom.requiredMoons; j++) {
+            for (j = 0; j < moonIndices.length && moonCount < totalMoons; j++) {
                 var index = moonIndices[j];
                 var moon = kingdom.moons[index];
                 if ((!this.useSeedMoons && moon.seed == true)
