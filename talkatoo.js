@@ -85,7 +85,7 @@ var vm = new Vue({
 
         generateMoonList: function(kingdoms) {
             this.kingdoms = [];
-            for (i = 0; i < kingdoms.length; i++) {
+            for (var i = 0; i < kingdoms.length; i++) {
                 var kingdom = moonList.kingdoms[kingdoms[i]];
                 var moonCount = 0;
                 var kingdomView = {
@@ -110,12 +110,12 @@ var vm = new Vue({
             // Otherwise, pull a number of story moons to add and add them in order.
             if (this.ignoreRequirements && this.useStoryMoons) {
                 var moonIndices = [];
-                for (i = 0; i < kingdom.storyMoons.length; i++) {
+                for (var i = 0; i < kingdom.storyMoons.length; i++) {
                     moonIndices.push(i);
                 }
                 shuffle(moonIndices);
 
-                for (i = 0; i < numOfStoryMoons; i++) {
+                for (var i = 0; i < numOfStoryMoons; i++) {
                     var index = moonIndices[i];
                     var moon = kingdom.storyMoons[index];
 
@@ -128,7 +128,7 @@ var vm = new Vue({
                     this.addMoonToKingdom(moon, kingdomView, '📖');
                 }
             } else {
-                for (i = 0; i < kingdom.storyMoons.length; i++) {
+                for (var i = 0; i < kingdom.storyMoons.length; i++) {
                     var moon = kingdom.storyMoons[i];
                     if (requireWorldPeace || moon.required || storyMoonCount < numOfStoryMoons) {
                         if (this.useStoryMoons) {
@@ -153,12 +153,12 @@ var vm = new Vue({
         randomizeMoons: function(kingdom, kingdomView, moonPrerequisites, moonCount, totalMoons) {
             var postgameMoons = [];
             var moonIndices = [];
-            for (i = 0; i < kingdom.moons.length; i++) {
+            for (var i = 0; i < kingdom.moons.length; i++) {
                 moonIndices.push(i);
             }
             shuffle(moonIndices);
 
-            for (i = 0; i < moonIndices.length && moonCount < totalMoons; i++) {
+            for (var i = 0; i < moonIndices.length && moonCount < totalMoons; i++) {
                 var index = moonIndices[i];
                 var moon = kingdom.moons[index];
                 if ((!this.useSeedMoons && moon.seed == true)
@@ -196,7 +196,7 @@ var vm = new Vue({
             }
 
             // Add postgame moons to the bottom of the moon list
-            for (i = 0; i < postgameMoons.length; i++) {
+            for (var i = 0; i < postgameMoons.length; i++) {
                 this.addMoonToKingdom(moon, kingdomView, '️🌛');
             }
         },
