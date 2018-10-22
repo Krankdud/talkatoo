@@ -187,6 +187,8 @@ var vm = new Vue({
 
                 if (moon.worldPeace) {
                     this.addMoonToKingdom(moon, kingdomView, '️🌎');
+                } else if (moon.postgame) {
+                    this.addMoonToKingdom(moon, kingdomView, '️🌛');
                 } else {
                     this.addMoonToKingdom(moon, kingdomView);
                 }
