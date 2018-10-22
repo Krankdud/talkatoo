@@ -26,55 +26,68 @@ var moonList = {
                 },
                 {
                     name: "On Top of the Rubble",
-                    prerequisite: "Multi Moon Atop the Falls"
+                    prerequisite: "Multi Moon Atop the Falls",
+                    worldPeace: true
                 },
                 {
                     name: "Treasure of the Waterfall Basin",
-                    prerequisite: "Multi Moon Atop the Falls"
+                    prerequisite: "Multi Moon Atop the Falls",
+                    worldPeace: true
                 },
                 {
                     name: "Above a High Cliff",
-                    prerequisite: "Multi Moon Atop the Falls"
+                    prerequisite: "Multi Moon Atop the Falls",
+                    worldPeace: true
                 },
                 {
                     name: "Across the Floating Isles",
-                    prerequisite: "Multi Moon Atop the Falls"
+                    prerequisite: "Multi Moon Atop the Falls",
+                    worldPeace: true
                 },
                 {
                     name: "Cascade Kingdom Timer Challenge 1",
-                    prerequisite: "Multi Moon Atop the Falls"
+                    prerequisite: "Multi Moon Atop the Falls",
+                    worldPeace: true
                 },
                 {
                     name: "Cascade Kingdom Timer Challenge 2",
-                    prerequisite: "Multi Moon Atop the Falls"
+                    prerequisite: "Multi Moon Atop the Falls",
+                    worldPeace: true
                 },
                 {
                     name: "Good Morning, Captain Toad!",
-                    prerequisite: "Multi Moon Atop the Falls"
+                    prerequisite: "Multi Moon Atop the Falls",
+                    worldPeace: true
                 },
                 {
                     name: "Dinosaur Nest: Big Cleanup!",
-                    prerequisite: "Multi Moon Atop the Falls"
+                    prerequisite: "Multi Moon Atop the Falls",
+                    worldPeace: true
                 },
                 {
                     name: "Dinosaur Nest: Running Wild!",
-                    prerequisite: "Multi Moon Atop the Falls"
+                    prerequisite: "Multi Moon Atop the Falls",
+                    worldPeace: true
                 },
                 {
                     name: "Nice Shot with the Chain Chomp!",
-                    prerequisite: "Multi Moon Atop the Falls"
+                    prerequisite: "Multi Moon Atop the Falls",
+                    worldPeace: true
                 },
                 {
                     name: "Very Nice Shot with the Chain Chomp!",
-                    prerequisite: "Nice Shot with the Chain Chomp!"
+                    prerequisite: "Nice Shot with the Chain Chomp!",
+                    worldPeace: true
                 },
                 {
                     name: "Past the Chasm Lifts",
-                    prerequisite: "Multi Moon Atop the Falls"
+                    prerequisite: "Multi Moon Atop the Falls",
+                    worldPeace: true
                 },
                 {
                     name: "Hidden Chasm Passage",
-                    prerequisite: "Multi Moon Atop the Falls"
+                    prerequisite: "Multi Moon Atop the Falls",
+                    worldPeace: true
                 },
                 {
                     name: "Secret Path to Fossil Falls!",
@@ -2213,13 +2226,16 @@ var moonList = {
                     name: "Sunken Treasure in the Moat"
                 },
                 {
-                    name: "Past the Moving Wall"
+                    name: "Past the Moving Wall",
+                    worldPeace: true
                 },
                 {
-                    name: "Above the Poison Swamp"
+                    name: "Above the Poison Swamp",
+                    worldPeace: true
                 },
                 {
-                    name: "Knocking Down the Nice Frame"
+                    name: "Knocking Down the Nice Frame",
+                    worldPeace: true
                 },
                 {
                     name: "Caught on the Iron Fence"
@@ -2231,13 +2247,15 @@ var moonList = {
                     name: "Inside a Block in the Castle"
                 },
                 {
-                    name: "Caught Hopping at Bowser's Castle!"
+                    name: "Caught Hopping at Bowser's Castle!",
+                    worldPeace: true
                 },
                 {
                     name: "Exterminate the Ogres!"
                 },
                 {
-                    name: "Bowser's Kingdom Timer Challenge 1"
+                    name: "Bowser's Kingdom Timer Challenge 1",
+                    worldPeace: true
                 },
                 {
                     name: "Taking Notes: Between Spinies"
@@ -2267,7 +2285,8 @@ var moonList = {
                     name: "Found Behind Bars!"
                 },
                 {
-                    name: "Fishing(?) in Bowser's Castle"
+                    name: "Fishing(?) in Bowser's Castle",
+                    worldPeace: true
                 },
                 {
                     name: "Good to See You, Captain Toad!"
@@ -2276,7 +2295,8 @@ var moonList = {
                     name: "Shopping at Bowser's Castle"
                 },
                 {
-                    name: "Bowser's Castle Treasure Vault"
+                    name: "Bowser's Castle Treasure Vault",
+                    worldPeace: true
                 },
                 {
                     name: "Scene of Crossing the Poison Swamp"
@@ -2285,16 +2305,20 @@ var moonList = {
                     name: "Taking Notes: In the Folding Screen"
                 },
                 {
-                    name: "On Top of the Spinning Tower"
+                    name: "On Top of the Spinning Tower",
+                    worldPeace: true
                 },
                 {
-                    name: "Down and Up the Spinning Tower"
+                    name: "Down and Up the Spinning Tower",
+                    worldPeace: true
                 },
                 {
-                    name: "Jizo's Big Adventure"
+                    name: "Jizo's Big Adventure",
+                    worldPeace: true
                 },
                 {
-                    name: "Jizo and the Hidden Room"
+                    name: "Jizo and the Hidden Room",
+                    worldPeace: true
                 },
                 {
                     name: "Dashing Above the Clouds"
