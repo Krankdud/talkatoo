@@ -101,7 +101,7 @@ var vm = new Vue({
             }
         },
 
-        randomizeStoryMoons: function(kingdom, kingdomView, moonPrerequisites) {
+        randomizeStoryMoons: function(kingdom, kingdomView, moonPrerequisites, requireWorldPeace) {
             var moonCount = 0;
             var storyMoonCount = 0;
             var numOfStoryMoons = Math.floor((kingdom.storyMoons.length + 1) * Math.random());
@@ -110,13 +110,13 @@ var vm = new Vue({
             // Otherwise, pull a number of story moons to add and add them in order.
             if (this.ignoreRequirements && this.useStoryMoons) {
                 var moonIndices = [];
-                for (j = 0; j < kingdom.storyMoons.length; j++) {
-                    moonIndices.push(j);
+                for (i = 0; i < kingdom.storyMoons.length; i++) {
+                    moonIndices.push(i);
                 }
                 shuffle(moonIndices);
 
-                for (j = 0; j < numOfStoryMoons; j++) {
-                    var index = moonIndices[j];
+                for (i = 0; i < numOfStoryMoons; i++) {
+                    var index = moonIndices[i];
                     var moon = kingdom.storyMoons[index];
 
                     if (moon.multimoon == true) {
@@ -128,9 +128,9 @@ var vm = new Vue({
                     this.addMoonToKingdom(moon, kingdomView, '📖');
                 }
             } else {
-                for (j = 0; j < kingdom.storyMoons.length; j++) {
-                    var moon = kingdom.storyMoons[j];
-                    if (moon.required || storyMoonCount < numOfStoryMoons) {
+                for (i = 0; i < kingdom.storyMoons.length; i++) {
+                    var moon = kingdom.storyMoons[i];
+                    if (requireWorldPeace || moon.required || storyMoonCount < numOfStoryMoons) {
                         if (this.useStoryMoons) {
                             this.addMoonToKingdom(moon, kingdomView, '📖');
 
@@ -151,14 +151,15 @@ var vm = new Vue({
         },
 
         randomizeMoons: function(kingdom, kingdomView, moonPrerequisites, moonCount, totalMoons) {
+            var postgameMoons = [];
             var moonIndices = [];
-            for (j = 0; j < kingdom.moons.length; j++) {
-                moonIndices.push(j);
+            for (i = 0; i < kingdom.moons.length; i++) {
+                moonIndices.push(i);
             }
             shuffle(moonIndices);
 
-            for (j = 0; j < moonIndices.length && moonCount < totalMoons; j++) {
-                var index = moonIndices[j];
+            for (i = 0; i < moonIndices.length && moonCount < totalMoons; i++) {
+                var index = moonIndices[i];
                 var moon = kingdom.moons[index];
                 if ((!this.useSeedMoons && moon.seed == true)
                     || (!this.useWarpMoons && moon.warp == true)
@@ -185,13 +186,18 @@ var vm = new Vue({
                 if (moon.worldPeace) {
                     this.addMoonToKingdom(moon, kingdomView, '️🌎');
                 } else if (moon.postgame) {
-                    this.addMoonToKingdom(moon, kingdomView, '️🌛');
+                    postgameMoons.push(moon);
                 } else {
                     this.addMoonToKingdom(moon, kingdomView);
                 }
                 moonPrerequisites.add(moon.name);
 
                 moonCount += 1;
+            }
+
+            // Add postgame moons to the bottom of the moon list
+            for (i = 0; i < postgameMoons.length; i++) {
+                this.addMoonToKingdom(moon, kingdomView, '️🌛');
             }
         },
 
