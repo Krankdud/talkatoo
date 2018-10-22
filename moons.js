@@ -12,6 +12,126 @@ var moonList = {
         "bowser"
     ],
     kingdoms: {
+        cap: {
+            name: "Cap Kingdom",
+            requiredMoons: 0,
+            moons: [
+                {
+                    name: "Frog-Jumping Above the Fog"
+                },
+                {
+                    name: "Frog-Jumping from the Top Deck"
+                },
+                {
+                    name: "Cap Kingdom Timer Challenge 1"
+                },
+                {
+                    name: "Good Evening, Captain Toad!"
+                },
+                {
+                    name: "Shopping in Bonneton"
+                },
+                {
+                    name: "Skimming the Poison Tide"
+                },
+                {
+                    name: "Slipping Through the Poison Tide"
+                },
+                {
+                    name: "Push-Block Peril"
+                },
+                {
+                    name: "Hidden Among the Push-Blocks"
+                },
+                {
+                    name: "Searching the Frog Pond"
+                },
+                {
+                    name: "Secrets of the Frog Pond"
+                },
+                {
+                    name: "The Forgotten Treasure",
+                    postgame: true
+                },
+                {
+                    name: "Taxi Flying Through Bonneton",
+                    postgame: true
+                },
+                {
+                    name: "Bonneter Blockade",
+                    postgame: true
+                },
+                {
+                    name: "Cap Kingdom Regular Cup",
+                    postgame: true
+                },
+                {
+                    name: "Peach in the Cap Kingdom",
+                    postgame: true
+                },
+                {
+                    name: "Found with Cap Kingdom Art",
+                    hintArt:true,
+                    postgame: true
+                },
+                {
+                    name: "Next to Glasses Bridge",
+                    postgame: true
+                },
+                {
+                    name: "Danger Sign",
+                    postgame: true
+                },
+                {
+                    name: "Under the Big One's Brim",
+                    postgame: true
+                },
+                {
+                    name: "Fly to the Edge of the Fog",
+                    postgame: true
+                },
+                {
+                    name: "Spin the Hat, Get a Prize",
+                    postgame: true
+                },
+                {
+                    name: "Hidden in a Sunken Hat",
+                    postgame: true
+                },
+                {
+                    name: "Fog-Shrouded Platform",
+                    postgame: true
+                },
+                {
+                    name: "Bird Traveling in the Fog",
+                    postgame: true
+                },
+                {
+                    name: "Caught Hopping Near the Ship!",
+                    postgame: true
+                },
+                {
+                    name: "Taking Notes: In the Fog",
+                    postgame: true
+                },
+                {
+                    name: "Cap Kingdom Timer Challenge 2",
+                    postgame: true
+                },
+                {
+                    name: "Cap Kingdom Master Cup",
+                    postgame: true
+                },
+                {
+                    name: "Roll On and On",
+                    postgame: true
+                },
+                {
+                    name: "Precision Rolling",
+                    postgame: true
+                },
+            ]
+        },
         cascade: {
             name: "Cascade Kingdom",
             requiredMoons: 5,
@@ -1000,6 +1120,48 @@ var moonList = {
                     name: "Below Breakdown Road",
                     postgame: true
                 }
+            ]
+        },
+        cloud: {
+            name: "Cloud Kingdom",
+            requiredMoons: 0,
+            moons: [
+                {
+                    name: "Picture Match: Basically a Goomba"
+                },
+                {
+                    name: "Peach in the Cloud Kingdom",
+                    postgame: true
+                },
+                {
+                    name: "Digging in the...Cloud?",
+                    postgame: true
+                },
+                {
+                    name: "High, High Above the Clouds",
+                    postgame: true
+                },
+                {
+                    name: "Crossing the Cloud Sea",
+                    postgame: true
+                },
+                {
+                    name: "Taking Notes: Up and Down",
+                    postgame: true
+                },
+                {
+                    name: "Picture Match: A Stellar Goomba!",
+                    prerequisite: "Picture Match: Basically a Goomba",
+                    postgame: true
+                },
+                {
+                    name: "King of the Cube!",
+                    postgame: true
+                },
+                {
+                    name: "The Sixth Face",
+                    postgame: true
+                },
             ]
         },
         lost: {
@@ -2200,6 +2362,52 @@ var moonList = {
                 }
             ]
         },
+        ruined: {
+            name: "Ruined Kingdom",
+            requiredMoons: 3,
+            storyMoons: [
+                {
+                    name: "Battle with the Lord of Lightning!",
+                    multimoon: true,
+                    required: true
+                }
+            ],
+            moons: [
+                {
+                    name: "In the Ancient Treasure Chest"
+                },
+                {
+                    name: "Roulette Tower: Climbed"
+                },
+                {
+                    name: "Roulette Tower: Stopped"
+                },
+                {
+                    name: "Peach in the Ruined Kingdom",
+                    postgame: true
+                },
+                {
+                    name: "Caught on a Big Horn",
+                    postgame: true
+                },
+                {
+                    name: "Upon the Broken Arch",
+                    postgame: true
+                },
+                {
+                    name: "Rolling Rock on the Battlefield",
+                    postgame: true
+                },
+                {
+                    name: "Charging Through an Army",
+                    postgame: true
+                },
+                {
+                    name: "The Mummy Army's Curse",
+                    postgame: true
+                },
+            ]
+        },
         bowser: {
             name: "Bowser's Kingdom",
             requiredMoons: 8,
@@ -2437,6 +2645,648 @@ var moonList = {
                     name: "Poke the Wooden Tower",
                     postgame: true
                 }
+            ]
+        },
+        moon: {
+            name: "Moon Kingdom",
+            requiredMoons: 0,
+            moons: [
+                {
+                    name: "Shining Above the Moon"
+                },
+                {
+                    name: "Along the Cliff Face"
+                },
+                {
+                    name: "The Tip of a White Spire"
+                },
+                {
+                    name: "Rolling Rock on the Moon"
+                },
+                {
+                    name: "Caught Hopping on the Moon!"
+                },
+                {
+                    name: "Cliffside Treasure Chest"
+                },
+                {
+                    name: "Moon Kingdom Timer Challenge 1"
+                },
+                {
+                    name: "Taking Notes: On the Moon's Surface"
+                },
+                {
+                    name: "Under the Bowser Statue"
+                },
+                {
+                    name: "In a Hole in the Magma"
+                },
+                {
+                    name: "Around the Barrier Wall"
+                },
+                {
+                    name: "On Top of the Cannon"
+                },
+                {
+                    name: "Fly to the Treasure Chest and Back"
+                },
+                {
+                    name: "Up in the Rafters"
+                },
+                {
+                    name: "Sneaking Around in the Crater",
+                    postgame: true
+                },
+                {
+                    name: "Found on the Moon, Good Dog!",
+                    postgame: true
+                },
+                {
+                    name: "Moon Shards on the Moon",
+                    postgame: true
+                },
+                {
+                    name: "Moon Quiz: Amazing!",
+                    postgame: true
+                },
+                {
+                    name: "Thanks, Captain Toad!",
+                    postgame: true
+                },
+                {
+                    name: "Shopping in Honeylune Ridge",
+                    postgame: true
+                },
+                {
+                    name: "Walking on the Moon!",
+                    postgame: true
+                },
+                {
+                    name: "Moon Kingdom Regular Cup",
+                    postgame: true
+                },
+                {
+                    name: "Doctor in the House",
+                    postgame: true
+                },
+                {
+                    name: "Sphynx's Hidden Vault",
+                    postgame: true
+                },
+                {
+                    name: "A Tourist in the Moon Kingdom!",
+                    tourist: true,
+                    postgame: true
+                },
+                {
+                    name: "Peach in the Moon Kingdom",
+                    postgame: true
+                },
+                {
+                    name: "Found with Moon Kingdom Art",
+                    hintArt: true,
+                    postgame: true
+                },
+                {
+                    name: "Mysterious Flying Object",
+                    postgame: true
+                },
+                {
+                    name: "Hidden on the Side of the Cliff",
+                    postgame: true
+                },
+                {
+                    name: "Jumping High as a Frog",
+                    postgame: true
+                },
+                {
+                    name: "Moon Kingdom Timer Challenge 2",
+                    postgame: true
+                },
+                {
+                    name: "Walking on the Moon: Again!",
+                    postgame: true
+                },
+                {
+                    name: "Moon Kingdom Master Cup",
+                    postgame: true
+                },
+                {
+                    name: "Taking Notes: In Low Gravity",
+                    postgame: true
+                },
+                {
+                    name: "Center of the Galaxy",
+                    postgame: true
+                },
+                {
+                    name: "Edge of the Galaxy",
+                    postgame: true
+                },
+                {
+                    name: "Navigating Giant Swings",
+                    postgame: true
+                },
+                {
+                    name: "A Swing on Top of a Swing",
+                    postgame: true
+                },
+            ]
+        },
+        mushroom: {
+            name: "Mushroom Kingdom",
+            requiredMoons: 0,
+            moons: [
+                {
+                    name: "Perched on the Castle Roof"
+                },
+                {
+                    name: "Pops Out of the Tail"
+                },
+                {
+                    name: "Caught Hopping at Peach's Castle!"
+                },
+                {
+                    name: "Gardening for Toad: Garden Seed"
+                },
+                {
+                    name: "Gardening for Toad: Field Seed"
+                },
+                {
+                    name: "Gardening for Toad: Pasture Seed"
+                },
+                {
+                    name: "Gardening for Toad: Lake Seed"
+                },
+                {
+                    name: "Grow a Flower Garden"
+                },
+                {
+                    name: "Mushroom Kingdom Timer Challenge"
+                },
+                {
+                    name: "Found at Peach's Castle! Good Dog!"
+                },
+                {
+                    name: "Taking Notes: Around the Well"
+                },
+                {
+                    name: "Herding Sheep at Peach's Castle"
+                },
+                {
+                    name: "Gobbling Fruit with Yoshi"
+                },
+                {
+                    name: "Yoshi's Second Helping!",
+                    prerequisite: "Gobbling Fruit with Yoshi"
+                },
+                {
+                    name: "Yoshi's All Filled Up!",
+                    prerequisite: "Yoshi's Second Helping!"
+                },
+                {
+                    name: "Love at Peach's Castle"
+                },
+                {
+                    name: "Toad Defender"
+                },
+                {
+                    name: "Forever Onward, Captain Toad!"
+                },
+                {
+                    name: "Jammin' in the Mushroom Kingdom"
+                },
+                {
+                    name: "Shopping Near Peach's Castle"
+                },
+                {
+                    name: "Mushroom Kingdom Regular Cup"
+                },
+                {
+                    name: "Mushroom Kingdom Master Cup",
+                    prerequisite: "Mushroom Kingdom Regular Cup"
+                },
+                {
+                    name: "Picture Match: Basically Mario"
+                },
+                {
+                    name: "Picture Match: A Stellar Mario!",
+                    prerequisite: "Picture Match: Basically Mario"
+                },
+                {
+                    name: "Light from the Ceiling"
+                },
+                {
+                    name: "Loose-Tile Trackdown"
+                },
+                {
+                    name: "Totally Classic!"
+                },
+                {
+                    name: "Courtyard Chest Trap"
+                },
+                {
+                    name: "Yoshi's Feast in the Sea of Clouds"
+                },
+                {
+                    name: "Sunken Star in the Sea of Clouds"
+                },
+                {
+                    name: "Secret 2D Treasure"
+                },
+                {
+                    name: "2D Boost from Bullet Bill"
+                },
+                {
+                    name: "Tussle in Tostarena: Rematch"
+                },
+                {
+                    name: "Struggle in Steam Gardens: Rematch"
+                },
+                {
+                    name: "Dust-Up in New Donk City: Rematch"
+                },
+                {
+                    name: "Battle in Bubblaine: Rematch"
+                },
+                {
+                    name: "Blowup at Mount Volbono: Rematch"
+                },
+                {
+                    name: "Secret Path to Peach's Castle!",
+                    warp: true
+                },
+                {
+                    name: "A Tourist in the Mushroom Kingdom!",
+                    tourist: true
+                },
+                {
+                    name: "Found with Mushroom Kingdom Art",
+                    hintArt: true
+                },
+                {
+                    name: "Hat-and-Seek: Mushroom Kingdom"
+                },
+                {
+                    name: "Princess Peach, Home Again!"
+                },
+                {
+                    name: "Rescue Princess Peach",
+                    achievement: true
+                },
+                {
+                    name: "Achieve World Peace",
+                    achievement: true
+                },
+                {
+                    name: "Power Moon Knight",
+                    achievement: true
+                },
+                {
+                    name: "Power Moon Wizard",
+                    achievement: true
+                },
+                {
+                    name: "Power Moon Ruler",
+                    achievement: true
+                },
+                {
+                    name: "Regional Coin Shopper",
+                    achievement: true
+                },
+                {
+                    name: "Flat Moon Finder",
+                    achievement: true
+                },
+                {
+                    name: "Flat Moon Fanatic",
+                    achievement: true
+                },
+                {
+                    name: "Treasure Chest Hunter",
+                    achievement: true
+                },
+                {
+                    name: "Super Treasure Chest Hunter",
+                    achievement: true
+                },
+                {
+                    name: "Note-Collecting World Tour",
+                    achievement: true
+                },
+                {
+                    name: "Note-Collecting Space Tour",
+                    achievement: true
+                },
+                {
+                    name: "Timer Challenge Amateur",
+                    achievement: true
+                },
+                {
+                    name: "Timer Challenge Professional",
+                    achievement: true
+                },
+                {
+                    name: "Captain Toad Meeter",
+                    achievement: true
+                },
+                {
+                    name: "Captain Toad Greeter",
+                    achievement: true
+                },
+                {
+                    name: "Touring with Princess Peach",
+                    achievement: true
+                },
+                {
+                    name: "Globe-Trotting with Princess Peach",
+                    achievement: true
+                },
+                {
+                    name: "Master Sheep Herder",
+                    achievement: true
+                },
+                {
+                    name: "Gaga for Goombette",
+                    achievement: true
+                },
+                {
+                    name: "Lakitu Fishing Trip",
+                    achievement: true
+                },
+                {
+                    name: "Flower-Growing Guru",
+                    achievement: true
+                },
+                {
+                    name: "Flower-Growing Sage",
+                    achievement: true
+                },
+                {
+                    name: "Running with Rabbits",
+                    achievement: true
+                },
+                {
+                    name: "Racing with Rabbits",
+                    achievement: true
+                },
+                {
+                    name: "Ground Pound Instructor",
+                    achievement: true
+                },
+                {
+                    name: "Ground Pound Professor",
+                    achievement: true
+                },
+                {
+                    name: "Rad Hatter",
+                    achievement: true
+                },
+                {
+                    name: "Super Rad Hatter",
+                    achievement: true
+                },
+                {
+                    name: "Traveling-Bird Herder",
+                    achievement: true
+                },
+                {
+                    name: "Wearing It Well!",
+                    achievement: true
+                },
+                {
+                    name: "Wearing It Great!",
+                    achievement: true
+                },
+                {
+                    name: "Wearing It Perfect!",
+                    achievement: true
+                },
+                {
+                    name: "Hat-Seeking Missile",
+                    achievement: true
+                },
+                {
+                    name: "Music Maestro",
+                    achievement: true
+                },
+                {
+                    name: "Art Enthusiast",
+                    achievement: true
+                },
+                {
+                    name: "Art Investigator",
+                    achievement: true
+                },
+                {
+                    name: "Slots Machine",
+                    achievement: true
+                },
+                {
+                    name: "Koopa Freerunning MVP",
+                    achievement: true
+                },
+                {
+                    name: "Koopa Freerunning Hall of Famer",
+                    achievement: true
+                },
+                {
+                    name: "Supernaturally Sure-Footed",
+                    achievement: true
+                },
+                {
+                    name: "Quizmaster",
+                    achievement: true
+                },
+                {
+                    name: "Souvenir Sampler",
+                    achievement: true
+                },
+                {
+                    name: "Souvenir Sleuth",
+                    achievement: true
+                },
+                {
+                    name: "Souvenir Savant",
+                    achievement: true
+                },
+                {
+                    name: "Capturing Novice",
+                    achievement: true
+                },
+                {
+                    name: "Capturing Apprentice",
+                    achievement: true
+                },
+                {
+                    name: "Capturing Master",
+                    achievement: true
+                },
+                {
+                    name: "Hat Maven",
+                    achievement: true
+                },
+                {
+                    name: "Hat Icon",
+                    achievement: true
+                },
+                {
+                    name: "Fashion Maven",
+                    achievement: true
+                },
+                {
+                    name: "Fashion Icon",
+                    achievement: true
+                },
+                {
+                    name: "Moon Rock Liberator",
+                    achievement: true
+                },
+                {
+                    name: "World Warper",
+                    achievement: true
+                },
+                {
+                    name: "Checkpoint Flagger",
+                    achievement: true
+                },
+                {
+                    name: "Checkpoint Flag Enthusiast",
+                    achievement: true
+                },
+                {
+                    name: "Loaded with Coins",
+                    achievement: true
+                },
+                {
+                    name: "Rolling in Coins",
+                    achievement: true
+                },
+                {
+                    name: "Swimming in Coins",
+                    achievement: true
+                },
+                {
+                    name: "Jump! Jump! Jump!",
+                    achievement: true
+                },
+                {
+                    name: "Fly, Cappy, Fly!",
+                    achievement: true
+                },
+            ]
+        },
+        darkside: {
+            name: "Dark Side",
+            requiredMoons: 0,
+            storyMoons: [
+                {
+                    name: "Arrival at Rabbit Ridge!",
+                    required: true
+                }
+            ],
+            moons: [
+                {
+                    name: "Captain Toad on the Dark Side!"
+                },
+                {
+                    name: "Breakdown Road: Hurry!",
+                    worldPeace: true
+                },
+                {
+                    name: "Breakdown Road: Final Challenge!",
+                    worldPeace: true
+                },
+                {
+                    name: "Invisible Road: Rush!",
+                    worldPeace: true
+                },
+                {
+                    name: "Invisible Road: Secret!",
+                    worldPeace: true
+                },
+                {
+                    name: "Vanishing Road Rush",
+                    worldPeace: true
+                },
+                {
+                    name: "Vanishing Road Challenge",
+                    worldPeace: true
+                },
+                {
+                    name: "Yoshi Under Siege",
+                    worldPeace: true
+                },
+                {
+                    name: "Fruit Feast Under Siege",
+                    worldPeace: true
+                },
+                {
+                    name: "Yoshi on the Sinking Island",
+                    worldPeace: true
+                },
+                {
+                    name: "Fruit Feast on the Sinking Island",
+                    worldPeace: true
+                },
+                {
+                    name: "Yoshi's Magma Swamp",
+                    worldPeace: true
+                },
+                {
+                    name: "Fruit Feast in the Magma Swamp!",
+                    worldPeace: true
+                },
+                {
+                    name: "Found with Dark Side Art 1",
+                    hintArt: true,
+                    worldPeace: true
+                },
+                {
+                    name: "Found with Dark Side Art 2",
+                    hintArt: true,
+                    worldPeace: true
+                },
+                {
+                    name: "Found with Dark Side Art 3",
+                    hintArt: true,
+                    worldPeace: true
+                },
+                {
+                    name: "Found with Dark Side Art 4",
+                    hintArt: true,
+                    worldPeace: true
+                },
+                {
+                    name: "Found with Dark Side Art 5",
+                    hintArt: true,
+                    worldPeace: true
+                },
+                {
+                    name: "Found with Dark Side Art 6",
+                    hintArt: true,
+                    worldPeace: true
+                },
+                {
+                    name: "Found with Dark Side Art 7",
+                    hintArt: true,
+                    worldPeace: true
+                },
+                {
+                    name: "Found with Dark Side Art 8",
+                    hintArt: true,
+                    worldPeace: true
+                },
+                {
+                    name: "Found with Dark Side Art 9",
+                    hintArt: true,
+                    worldPeace: true
+                },
+                {
+                    name: "Found with Dark Side Art 10",
+                    hintArt: true,
+                    worldPeace: true
+                },
             ]
         }
     }
