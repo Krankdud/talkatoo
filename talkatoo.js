@@ -32,13 +32,13 @@ Vue.component('moon', {
                     <s>
                         {{ name }}
                         <br class="d-md-none" v-if="description" />
-                        <small class="ml-md-2 text-muted">{{ description }}</small>
+                        <small class="ml-md-2 text-muted" v-if="description">{{ description }}</small>
                     </s>
                 </div>
                 <div v-else>
                     {{ name }}
                     <br class="d-md-none" v-if="description" />
-                    <small class="ml-md-2 text-muted">{{ description }}</small>
+                    <small class="ml-md-2 text-muted" v-if="description">{{ description }}</small>
                 </div>
             </label>
         </div>
