@@ -1242,7 +1242,8 @@ var moonList = {
                     name: "City Hall Lost & Found"
                 },
                 {
-                    name: "Sewer Treasure"
+                    name: "Sewer Treasure",
+                    prerequisite: ["Drummer on Board!", "Guitarist on Board!", "Bassist on Board!", "Trumpeter on Board!"]
                 },
                 {
                     name: "Celebrating in the Streets!",

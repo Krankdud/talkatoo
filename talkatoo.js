@@ -168,7 +168,17 @@ var vm = new Vue({
                     continue;
                 }
                 if (!this.ignoreRequirements && moon.prerequisite && !moonPrerequisites.has(moon.prerequisite)) {
-                    continue;
+                    if (Array.isArray(moon.prerequisite)) {
+                        var hasMoon = false;
+                        for (var i = 0; i < moon.prerequisite.length; i++) {
+                            hasMoon = hasMoon || moonPrerequisites.has(moon.prerequisite)
+                        }
+                        if (!hasMoon) {
+                            continue;
+                        }
+                    } else if (!moonPrerequisites.has(moon.prerequisite)) {
+                        continue;
+                    }
                 }
 
                 if (moon.worldPeace) {
