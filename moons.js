@@ -49,6 +49,7 @@ var moonList = {
         cap: {
             name: "Cap Kingdom",
             requiredMoons: 0,
+            storyMoons: [],
             moons: [
                 {
                     name: "Frog-Jumping Above the Fog"
@@ -1169,6 +1170,7 @@ var moonList = {
         cloud: {
             name: "Cloud Kingdom",
             requiredMoons: 0,
+            storyMoons: [],
             moons: [
                 {
                     name: "Picture Match: Basically a Goomba"
@@ -2710,6 +2712,7 @@ var moonList = {
         moon: {
             name: "Moon Kingdom",
             requiredMoons: 0,
+            storyMoons: [],
             moons: [
                 {
                     name: "Shining Above the Moon"
@@ -2858,6 +2861,7 @@ var moonList = {
         mushroom: {
             name: "Mushroom Kingdom",
             requiredMoons: 0,
+            storyMoons: [],
             moons: [
                 {
                     name: "Perched on the Castle Roof"
@@ -2869,16 +2873,20 @@ var moonList = {
                     name: "Caught Hopping at Peach's Castle!"
                 },
                 {
-                    name: "Gardening for Toad: Garden Seed"
+                    name: "Gardening for Toad: Garden Seed",
+                    seed: true
                 },
                 {
-                    name: "Gardening for Toad: Field Seed"
+                    name: "Gardening for Toad: Field Seed",
+                    seed: true
                 },
                 {
-                    name: "Gardening for Toad: Pasture Seed"
+                    name: "Gardening for Toad: Pasture Seed",
+                    seed: true
                 },
                 {
-                    name: "Gardening for Toad: Lake Seed"
+                    name: "Gardening for Toad: Lake Seed",
+                    seed: true
                 },
                 {
                     name: "Grow a Flower Garden"
@@ -2990,8 +2998,12 @@ var moonList = {
                     name: "Hat-and-Seek: Mushroom Kingdom"
                 },
                 {
-                    name: "Princess Peach, Home Again!"
+                    name: "Princess Peach, Home Again!",
+                    backtrack: true
                 },
+            ],
+            postgameMoons: [],
+            achievement: [
                 {
                     name: "Rescue Princess Peach",
                     achievement: true
@@ -3349,7 +3361,8 @@ var moonList = {
                     hintArt: true,
                     worldPeace: true
                 },
-            ]
+            ],
+            postgameMoons: []
         }
     }
 }

@@ -29,19 +29,19 @@
                     </div>
                     <div class="form-group">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="goalRadio" id="anyPercent" value="anyPercent" checked>
+                            <input class="form-check-input" type="radio" name="goalRadio" id="anyPercent" value="anyPercent" v-model="goal" checked>
                             <label class="form-check-label" for="anyPercent">
                                 Any%
                             </label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="goalRadio" id="darkSide" value="darkSide" disabled>
+                            <input class="form-check-input" type="radio" name="goalRadio" id="darkSide" value="darkSide" v-model="goal">
                             <label class="form-check-label" for="darkSide">
                                 Dark Side
                             </label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="goalRadio" id="darkerSide" value="darkerSide" disabled>
+                            <input class="form-check-input" type="radio" name="goalRadio" id="darkerSide" value="darkerSide" v-model="goal">
                             <label class="form-check-label" for="darkerSide">
                                 Darker Side
                             </label>
@@ -54,7 +54,9 @@
                                 Include story moons
                             </label>
                             <br class="d-md-none" />
-                            <small class="text-muted">(Gives exactly 124 moons, unless moon requirements are ignored)</small>
+                            <small class="text-muted" v-if="goal == 'anyPercent'">(Gives exactly 124 moons, unless moon requirements are ignored)</small>
+                            <small class="text-muted" v-if="goal == 'darkSide'">(Gives exactly 250 moons, unless moon requirements are ignored)</small>
+                            <small class="text-muted" v-if="goal == 'darkerSide'">(Gives exactly 500 moons, unless moon requirements are ignored)</small>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="useSeedMoons" v-model="useSeedMoons">
@@ -92,9 +94,11 @@
 
             <div v-if="generated">
                 <div class="container kingdom" v-for="kingdom in kingdoms">
-                    <h3>{{ kingdom.name }}</h3>
-                    <div class="moon" v-for="moon in kingdom.moons">
-                        <moon :name="moon.name" :description="moon.description"></moon>
+                    <div v-if="kingdom.moons.length > 0">
+                        <h3>{{ kingdom.name }}</h3>
+                        <div class="moon" v-for="moon in kingdom.moons">
+                            <moon :name="moon.name" :description="moon.description"></moon>
+                        </div>
                     </div>
                 </div>
             </div>
