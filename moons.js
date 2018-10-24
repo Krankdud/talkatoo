@@ -11,6 +11,40 @@ var moonList = {
         "luncheon",
         "bowser"
     ],
+    darkSideKingdoms: [
+        "cap",
+        "cascade",
+        "sand",
+        "lake",
+        "wooded",
+        "cloud",
+        "lost",
+        "metro",
+        "snow",
+        "seaside",
+        "luncheon",
+        "ruined",
+        "bowser",
+        "moon",
+        "mushroom"
+    ],
+    darkerSideKingdoms: [
+        "cap",
+        "cascade",
+        "sand",
+        "lake",
+        "wooded",
+        "cloud",
+        "lost",
+        "metro",
+        "snow",
+        "seaside",
+        "luncheon",
+        "ruined",
+        "bowser",
+        "moon",
+        "mushroom"
+    ],
     kingdoms: {
         cap: {
             name: "Cap Kingdom",

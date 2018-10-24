@@ -88,6 +88,7 @@ var vm = new Vue({
             for (var i = 0; i < kingdoms.length; i++) {
                 var kingdom = moonList.kingdoms[kingdoms[i]];
                 var moonCount = 0;
+                var totalMoons = kingdom.requiredMoons;
                 var kingdomView = {
                     name: kingdom.name,
                     moons: []
@@ -95,7 +96,8 @@ var vm = new Vue({
                 var moonPrerequisites = new Set()
 
                 moonCount = this.randomizeStoryMoons(kingdom, kingdomView, moonPrerequisites);
-                this.randomizeMoons(kingdomView, kingdom.moons, moonPrerequisites, moonCount, kingdom.requiredMoons)
+                moonCount = this.randomizeMoons(kingdomView, kingdom.moons, moonPrerequisites, moonCount, kingdom.requiredMoons)
+                this.randomizeMoons(kingdomView, kingdom.postgameMoons, moonPrerequisites, moonCount, totalMoons, '🌛')
 
                 this.kingdoms.push(kingdomView);
             }
