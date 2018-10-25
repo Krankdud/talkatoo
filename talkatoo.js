@@ -66,6 +66,7 @@ var vm = new Vue({
         if (seed) {
             var settings = this.decodeSettings(seed)
             this.seed = settings.seed;
+            this.goal = settings.goal;
             this.useStoryMoons = settings.useStoryMoons;
             this.useSeedMoons = settings.useSeedMoons;
             this.useWarpMoons = settings.useWarpMoons;
@@ -270,21 +271,35 @@ var vm = new Vue({
         encodeSettings: function() {
             // Encode the settings by turning the boolean options into a hexadecimal value,
             // then append the seed to the string. Encode to base64 afterwards.
+            var goalNum = '0';
+            if (this.goal == 'darkSide') {
+                goalNum = '1';
+            } else if (this.goal == 'darkerSide') {
+                goalNum = '2';
+            }
             var settingsBits = 0;
             settingsBits += this.useStoryMoons ? 1 : 0
             settingsBits += this.useSeedMoons ? 2 : 0
             settingsBits += this.useWarpMoons ? 4 : 0
             settingsBits += this.useHintArtMoons ? 8 : 0
             settingsBits += this.ignoreRequirements ? 16 : 0
-            return btoa(pad(settingsBits.toString(16), 4) + this.seed);
+            return btoa(goalNum + pad(settingsBits.toString(16), 2) + this.seed);
         },
         
         decodeSettings: function(encodedSettings) {
             var decodedSettings = atob(encodedSettings);
-            var settingsBits = parseInt(decodedSettings.substring(0, 4), 16);
-            var seed = decodedSettings.substring(4);
+            var goalNum = parseInt(decodedSettings.substring(0, 1));
+            var settingsBits = parseInt(decodedSettings.substring(1, 3), 16);
+            var seed = decodedSettings.substring(3);
+            var goal = "anyPercent"
+            if (goalNum == 1) {
+                goal = "darkSide";
+            } else if (goalNum == 2) {
+                goal = "darkerSide";
+            }
             return {
                 seed: seed,
+                goal: goal,
                 useStoryMoons: (settingsBits & 1) > 0,
                 useSeedMoons: (settingsBits & 2) > 0,
                 useWarpMoons: (settingsBits & 4) > 0,
