@@ -157,7 +157,8 @@ var moonList = {
                 },
                 {
                     name: "Cap Kingdom Master Cup",
-                    postgame: true
+                    postgame: true,
+                    prerequisite: "Cap Kingdom Regular Cup"
                 },
                 {
                     name: "Roll On and On",
@@ -334,7 +335,8 @@ var moonList = {
                 },
                 {
                     name: "Cascade Kingdom Master Cup",
-                    postgame: true
+                    postgame: true,
+                    prerequisite: "Cascade Kingdom Regular Cup"
                 },
                 {
                     name: "Across the Mysterious Clouds",
@@ -676,7 +678,8 @@ var moonList = {
                 },
                 {
                     name: "Sand Kingdom Master Cup",
-                    postgame: true
+                    postgame: true,
+                    prerequisite: "Sand Kingdom Regular Cup"
                 },
                 {
                     name: "Where the Transparent Platforms End",
@@ -858,7 +861,8 @@ var moonList = {
                 },
                 {
                     name: "Lake Kingdom Master Cup",
-                    postgame: true
+                    postgame: true,
+                    prerequisite: "Lake Kingdom Regular Cup"
                 },
                 {
                     name: "Waves of Poison: Hoppin' Over",
@@ -1135,7 +1139,8 @@ var moonList = {
                 },
                 {
                     name: "Wooded Kingdom Master Cup",
-                    postgame: true
+                    postgame: true,
+                    prerequisite: "Wooded Kingdom Regular Cup"
                 },
                 {
                     name: "I Met an Uproot!",
@@ -1317,7 +1322,8 @@ var moonList = {
                 },
                 {
                     name: "Lost Kingdom Master Cup",
-                    postgame: true
+                    postgame: true,
+                    prerequisite: "Lost Kingdom Regular Cup"
                 },
                 {
                     name: "Lost Kingdom Timer Challenge",
@@ -1607,11 +1613,13 @@ var moonList = {
                 },
                 {
                     name: "RC Car Champ!",
-                    postgame: true
+                    postgame: true,
+                    prerequisite: "RC Car Pro"
                 },
                 {
                     name: "Metro Kingdom Master Cup",
-                    postgame: true
+                    postgame: true,
+                    prerequisite: "Metro Kingdom Regular Cup"
                 },
                 {
                     name: "Hat-and-Seek: In the Crowd",
@@ -1854,7 +1862,8 @@ var moonList = {
                 },
                 {
                     name: "Snow Kingdom Master Cup",
-                    postgame: true
+                    postgame: true,
+                    prerequisite: "Snow Kingdom Regular Cup"
                 },
                 {
                     name: "Iceburn Circuit Class A",
@@ -1862,7 +1871,8 @@ var moonList = {
                 },
                 {
                     name: "Iceburn Circuit Class S",
-                    postgame: true
+                    postgame: true,
+                    prerequisite: "Iceburn Circuit Class A"
                 },
                 {
                     name: "Running the Flower Road",
@@ -2118,7 +2128,8 @@ var moonList = {
                 },
                 {
                     name: "Seaside Kingdom Master Cup",
-                    postgame: true
+                    postgame: true,
+                    prerequisite: "Seaside Kingdom Regular Cup"
                 },
                 {
                     name: "Aim! Poke!",
@@ -2392,7 +2403,8 @@ var moonList = {
                 },
                 {
                     name: "Luncheon Kingdom: Master Cup",
-                    postgame: true
+                    postgame: true,
+                    prerequisite: "Luncheon Kingdom: Regular Cup"
                 },
                 {
                     name: "Stepping Over the Gears",
@@ -2689,7 +2701,8 @@ var moonList = {
                 },
                 {
                     name: "Bowser's Kingdom Master Cup",
-                    postgame: true
+                    postgame: true,
+                    prerequisite: "Bowser's Kingdom Regular Cup"
                 },
                 {
                     name: "Searching Hexagon Tower",
@@ -2834,7 +2847,8 @@ var moonList = {
                 },
                 {
                     name: "Moon Kingdom Master Cup",
-                    postgame: true
+                    postgame: true,
+                    prerequisite: "Moon Kingdom Regular Cup"
                 },
                 {
                     name: "Taking Notes: In Low Gravity",
