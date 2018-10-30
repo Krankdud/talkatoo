@@ -178,7 +178,7 @@ var vm = new Vue({
                 if (suffix) {
                     this.addMoonToKingdom(moon, kingdomView, suffix);
                 } else if (moon.worldPeace) {
-                    this.addMoonToKingdom(moon, kingdomView, '️🌎');
+                    this.addMoonToKingdom(moon, kingdomView, '🌎');
                 } else {
                     this.addMoonToKingdom(moon, kingdomView);
                 }
